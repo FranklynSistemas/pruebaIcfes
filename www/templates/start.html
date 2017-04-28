@@ -1,0 +1,37 @@
+<ion-view  hide-back-button="false"  cache-view="false" id="page6" style="background-color:white;">
+    <div class="bar bar-header bar-balanced">
+	  <h1 class="title">Rutas</h1>
+	</div>
+    <ion-content padding="true" class="has-header" scroll="false">
+    <div class="list">
+	  <div class="item item-input-inset">
+	    <label class="item-input-wrapper">
+	      <i class="icon ion-speakerphone placeholder-icon"></i>
+            <input id="direction" type="text" placeholder="Nueva Ruta" >
+	    </label>
+	    <a class="button button-icon icon ion-checkmark-circled" ng-click="crear()" style="color: #33cd5f;"></a>
+	  </div>
+	</div>
+	<div id="content">
+    <ul class="list" >
+	    <li class="item" ng-repeat="ruta in rutas" id="listTodo">
+	    	<div id="divContent" style="background-color:{{ruta.color}};" ng-click="openWaze(ruta.destin.lat,ruta.destin.long)">
+		    	<span>{{$index+1}}. {{ruta.nombre}}</span>
+		    	<i ng-if="ruta.completa" class="icon ion-checkmark-round" id="Completa"></i>
+		    	<!--<button ng-if="!ruta.completa" class="button button-small button-balanced" id="btnCompletar" ng-click="completa(ruta.Id)">
+		    	Completar
+		    	</button>-->
+		    	<a  ng-if="!ruta.completa" class="button button-icon icon ion-checkmark-circled" ng-click="completa(ruta.Id)" id="btnCompletar"></a>
+	    	</div>
+	    	<div id="contentRute">
+	    		<div id="distance">Distancia: {{ruta.distance}} Km</div>
+	    		<div id="time">Tiempo: {{ruta.time}} Min</div>
+	    	</div>
+	    </li>
+	</ul>
+	</div>
+	<button class="button button-block button-assertive" ng-click="clear()">
+	  Limpiar
+	</button>
+    </ion-content>
+</ion-view>

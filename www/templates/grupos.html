@@ -1,0 +1,32 @@
+<ion-view  hide-back-button="false" id="page6" style="background-color:#33cd5f;">
+    <div class="bar bar-header bar-balanced">
+	  <h1 class="title">Todo List - Grupos</h1>
+	</div>
+    <ion-content padding="true" class="has-header">
+    <div class="list">
+	  <div class="item item-input-inset">
+	    <label class="item-input-wrapper">
+	      <i class="icon ion-speakerphone placeholder-icon"></i>
+            <input type="text" placeholder="Nueva Tarea" ng-model="data.Tarea">
+	    </label>
+	    <a class="button button-icon icon ion-checkmark-circled" ng-click="crear()" style="color: #33cd5f;"></a>
+	  </div>
+	</div>
+    <ul class="list" >
+	    <li class="item" ng-repeat="tarea in Tareas" id="listTodo">
+	    	<div id="divContent" style="background-color:{{tarea.color}};">
+		    	<span>{{tarea.nombre}}</span>
+		    	<i ng-if="tarea.completa" class="icon ion-checkmark-round" id="Completa"></i>
+		    	<button ng-if="!tarea.completa" class="button button-small button-balanced" id="btnCompletar" ng-click="completa(tarea.Id)">
+		    	Completar
+		    	</button>
+	    	</div>
+	    </li>
+	</ul>
+    </ion-content>
+    <div class="bar bar-footer bar-dark">
+	  <button class="button button-clear button-balanced" ui-sref="start">Atrás</button>
+	  <div class="title">UDEC</div>
+	  <button class="button button-clear button-balanced" ui-sref="grupos">Adelante</button>
+	</div>
+</ion-view>
